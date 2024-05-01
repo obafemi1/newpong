@@ -1,0 +1,22 @@
+{
+  "name": "newpong",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "reload-statics": "cp -R ./src/view ./dist/. ; cp ./src/*.html ./dist/.",
+    "build": "npm run reload-statics; tsc",
+    "clean": "rm -rf ./dist/*",
+    "clean-build": "npm run clean && npm run build",
+    "watch": "nodemon ./dist",
+    "start": "npm run clean-build && npm run watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "nodemon": "^3.1.0",
+    "typescript": "^5.4.5"
+  }
+}
