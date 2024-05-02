@@ -6,7 +6,7 @@
     let button;
     let w = 900;
     let h = 600;
-    const PADDLE_SPEED = 5; //change as needed
+    const PADDLE_SPEED = 30; //change as needed
     const SCORE_TO_WIN = 5;
   
     document.addEventListener("DOMContentLoaded", () => {
@@ -26,9 +26,13 @@
     document.addEventListener(`keydown`, handleKeyDown);
   
     function startGame() {
-      button.hidden = true;
-      console.log(start);
-      update();
+  button.hidden = true; // Hide the START button
+  console.log(start);
+
+  document.addEventListener(`keydown`, handleKeyDown);
+
+  update(); 
+
     }
   
     // Initial ball speed
@@ -250,6 +254,8 @@
     }
   
     .container {
+      width: 900px;
+      height: 600px;
       background-color: #2f2f31;
       border: 1px solid #2f2f2f;
       border-radius: 8px;
