@@ -6,17 +6,11 @@
     let button;
     let w = 900;
     let h = 600;
-    let leftScore = 0;
-    let rightScore = 0;
+    let leftScore = 0 
+    let rightScore = 0
     const PADDLE_SPEED = 30; //change as needed
     const SCORE_TO_WIN = 5;
-
-    let leftgoup = false;
-    let leftgodown = false;
-    let rightgodown = false;
-    let rightgodown = false;
-
-  
+    
   
     document.addEventListener("DOMContentLoaded", () => {
       console.log("page loaded");
@@ -30,40 +24,30 @@
       })
       container.style.width = window.innerWidth * 0.7 +'px'
       container.style.height = window.innerHeight * 0.7 +'px'
-      w = parseInt(window.innerWidth) * 0.7 +'px'
-      h = parseInt(innerHeight) * 0.7 +'px'
+      w = window.innerWidth * 0.7 +'px'
+      h = window.innerHeight * 0.7 +'px'
+
       leftPaddle.style.top = getComputedStyle (leftPaddle).top;
       rightPaddle.style.top = getComputedStyle (rightPaddle).top;
       ball.style.top = getComputedStyle (ball).top;
       ball.style.left = getComputedStyle (ball).left;
-      ballinittop = ball.style.top;
-      ballinitleft = ball.style.left;
     });
   
-    document.addEventListener(`keydown`, handleftKeyDown);
-    document.addEventListener(`keyup`, handleftKeyUp);
+    document.addEventListener(`keydown`, handleKeyDown);
   
-  
-   async function startGame() {
+    function startGame() {
   button.hidden = true; // Hide the START button
   console.log(start);
 
-  document.addEventListener(`keydown`, handleftKeyDown);
+  document.addEventListener(`keydown`, handleKeyDown);
 
   update(); 
 
     }
   
     // Initial ball speed
-    let ballSpeedScale = 10
-    let ballSpeedX = Math.random() = 0.5 * ballSpeedScale;
-    let ballSpeedY = Math.random() = 0.5 * ballSpeedScale;
-
-    function resetBall(){
-      console.log("reset" , w, h, ball.style.left, ball.style.top);
-      ball.style.left = ballinitleft;
-      ball.style.top = ballinittop;
-    }
+    let ballSpeedX = 2;
+    let ballSpeedY = 1;
   
     function update() {
       // Move ball
@@ -118,50 +102,11 @@
       // Game loop
       requestAnimationFrame(update);
     }
-
-    function handleftKeyUp(event){
-      const keyPressed = event.key.toLowerCase();
-      if (keyPressed === `w`) {
-        // Move left paddle up
-        leftgoup = false;
-      }else if (keyPressed === `s`){
-          //Move left paddle down
-          leftgodown = false;
-        }
-        if (keyPressed === `arrowup`){
-          //Move right paddle up
-          righgoup = false
-        }else if (keyPressed === `arrowdown`){
-            //Move right paddle down
-            rightgodown = false
-      }
-        }
-
-
-
-        console.log(leftPaddle)
-        console.log(left.style)
-        console.log(leftPaddle.style.top)
-        let top= getComputedStyle(leftPaddle).top.replace(`px`,``)
-      
   
-        function handleftKeyDown(event){
+    function handleKeyDown(event) {
       const keyPressed = event.key.toLowerCase();
-      if (keyPressed === `w`) {
+      if (keyPressed === `arrowup` || keyPressed === `w`) {
         // Move left paddle up
-        leftgoup = true;
-      }else if (keyPressed === `s`){
-          //Move left paddle down
-          leftgodown = true;
-        }
-        if (keyPressed === `arrowup`){
-          //Move right paddle up
-          righgoup = true;
-        }else if (keyPressed === `arrowdown`){
-            //Move right paddle down
-            rightgodown = true;
-      }
-        }
         console.log(leftPaddle)
         console.log(left.style)
         console.log(leftPaddle.style.top)
